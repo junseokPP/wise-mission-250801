@@ -17,7 +17,7 @@ public class Main {
                 scanner.nextLine();
 
                 System.out.print(no + "번 명언이 등록되었습니다.");
-                no++;//3단계에 4단계를 포함시킴
+                no++;
             }
             else if(input.equals("종료")) {
                 break;
