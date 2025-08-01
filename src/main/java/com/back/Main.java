@@ -46,7 +46,7 @@ public class Main {
             }
 
             else if (input.startsWith("삭제?id=")) {
-
+                try {
                     int id = Integer.parseInt(input.substring(8).trim());
 
                     int foundIndex = -1;
@@ -65,7 +65,9 @@ public class Main {
                         authors[foundIndex] = null;
                         System.out.println(id + "번 명언이 삭제되었습니다.");
                     }
-
+                } catch (NumberFormatException e) {
+                    System.out.println("ID 형식이 잘못되었습니다.");
+                }
             }
 
             else if (input.equals("종료")) {
