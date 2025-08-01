@@ -68,8 +68,37 @@ public class Main {
                 } catch (NumberFormatException e) {
                     System.out.println("ID 형식이 잘못되었습니다.");
                 }
-            }
+            }else if (input.startsWith("수정?id=")) {
+                try {
+                    int id = Integer.parseInt(input.substring(8).trim());
 
+                    int foundIndex = -1;
+
+                    for (int i = 0; i < count; i++) {
+                        if (ids[i] == id && contents[i] != null) {
+                            foundIndex = i;
+                            break;
+                        }
+                    }
+
+                    if (foundIndex == -1) {
+                        System.out.println(id + "번 명언은 존재하지 않습니다.");
+                    } else {
+                        System.out.println("명언(기존) : " + contents[foundIndex]);
+                        System.out.print("명언 : ");
+                        contents[foundIndex] = scanner.nextLine();
+
+                        System.out.println("작가(기존) : " + authors[foundIndex]);
+                        System.out.print("작가 : ");
+                        authors[foundIndex] = scanner.nextLine();
+
+                        System.out.println(id + "번 명언이 수정되었습니다.");
+                    }
+
+                } catch (NumberFormatException e) {
+                    System.out.println("ID 형식이 잘못되었습니다.");
+                }
+            }
             else if (input.equals("종료")) {
                 break;
             }
